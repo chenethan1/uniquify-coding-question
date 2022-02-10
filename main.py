@@ -26,6 +26,8 @@ def adjust_data(data, shape):
 
 # this function is here to create a sublist from the data
 def recursive_data(data, shape):
+    if len(shape) == 0:  # if the shape given is an empty list, return an empty list
+        return []
     if len(shape) == 1:  # if the length of shape is 1, then the data doesn't need to be split more, so return data
         return data
     else:
