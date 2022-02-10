@@ -24,6 +24,13 @@ def adjust_data(data, shape):
     return adjusted_data  # return the new adjusted_data which has the correct length of shape_values
 
 
+
+# this function is the starting point of the splitting process
+def shape_data(data, shape):
+    adjusted_data = adjust_data(data, shape)  # call adjusted_data from the adjust_data function
+    return recursive_data(adjusted_data, shape)  # calls back to the recursive_data function
+
+
 # this function is here to create a sublist from the data
 def recursive_data(data, shape):
     if len(shape) == 0:  # if the shape given is an empty list, return an empty list
@@ -41,12 +48,6 @@ def recursive_data(data, shape):
             # removes the first element from shape to pass the rest of the elements through
             output.append(reshaped_data)  # appends the reshaped_data to the initially empty list
         return output  # returns the sublist
-
-
-# this function is the starting point of the splitting process
-def shape_data(data, shape):
-    adjusted_data = adjust_data(data, shape)  # call adjusted_data from the adjust_data function
-    return recursive_data(adjusted_data, shape)  # calls back to the recursive_data function
 
 
 '''this function is here to split the data into sublists
